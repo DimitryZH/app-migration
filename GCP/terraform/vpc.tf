@@ -37,6 +37,19 @@ resource "google_compute_firewall" "allow_http" {
   target_tags   = ["http-server"]
 }
 
+resource "google_compute_firewall" "allow_ssh_iap" {
+  name    = "allow-ssh-iap"
+  network = google_compute_network.vpc_network.name
+
+  allow {
+    protocol = "tcp"
+    ports    = ["22"]
+  }
+
+  source_ranges = ["35.235.240.0/20"]
+  target_tags   = ["http-server"]
+}
+
 resource "google_compute_firewall" "allow_health_check" {
   name    = "allow-health-check"
   network = google_compute_network.vpc_network.name

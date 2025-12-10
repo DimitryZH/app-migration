@@ -22,19 +22,11 @@ resource "google_compute_instance_template" "app_template" {
     scopes = ["cloud-platform"]
   }
 
-  metadata_startup_script = <<-EOF
-    #!/bin/bash
-    apt-get update
-    apt-get install -y python3-pip unzip wget
-    wget https://aws-tc-largeobjects.s3-us-west-2.amazonaws.com/DEV-AWS-MO-GCNv2/FlaskApp.zip
-    unzip FlaskApp.zip
-    cd FlaskApp/
-    pip3 install -r requirements.txt
-    export PHOTOS_BUCKET=${google_storage_bucket.employee_photo_bucket.name}
-    export GCP_PROJECT=${var.project_id}
-    export DATASTORE_MODE=on
-    FLASK_APP=application.py /usr/local/bin/flask run --host=0.0.0.0 --port=80
-  EOF
+  metadata_startup_script = templatefile("startup.sh", {
+    bucket_name  = google_storage_bucket.employee_photo_bucket.name
+    project_id   = var.project_id
+    flask_secret = var.flask_secret
+  })
 
   tags = ["http-server"]
 

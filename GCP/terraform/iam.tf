@@ -14,3 +14,9 @@ resource "google_project_iam_member" "datastore_user" {
   role    = "roles/datastore.user"
   member  = "serviceAccount:${google_service_account.app_service_account.email}"
 }
+
+resource "google_project_iam_member" "token_creator" {
+  project = var.project_id
+  role    = "roles/iam.serviceAccountTokenCreator"
+  member  = "serviceAccount:${google_service_account.app_service_account.email}"
+}

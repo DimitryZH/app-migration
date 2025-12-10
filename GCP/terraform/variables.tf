@@ -32,3 +32,9 @@ variable "image_project" {
   type        = string
   default     = "debian-cloud"
 }
+
+variable "flask_secret" {
+  description = "Secret key for Flask app"
+  type        = string
+  default     = "something-random-change-me"
+}
