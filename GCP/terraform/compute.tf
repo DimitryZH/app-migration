@@ -12,9 +12,6 @@ resource "google_compute_instance_template" "app_template" {
   network_interface {
     network    = google_compute_network.vpc_network.id
     subnetwork = google_compute_subnetwork.subnet.id
-    access_config {
-      # Ephemeral IP
-    }
   }
 
   service_account {
