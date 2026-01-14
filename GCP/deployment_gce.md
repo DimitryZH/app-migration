@@ -1,6 +1,6 @@
 # GCP Compute Engine Deployment Guide
 
-This document provides a step-by-step guide to deploy the Employee Directory application on **Google Cloud Platform using Compute Engine and Managed Instance Groups**. The deployment is fully automated using **Terraform** and a startup script.
+This document provides a step-by-step guide to deploy the Enterprise App on **Google Cloud Platform using Compute Engine and Managed Instance Groups**. The deployment is fully automated using **Terraform** and a startup script.
 
 ---
 
@@ -130,7 +130,7 @@ Open the application in your browser:
 http://<load_balancer_ip>
 ```
 
-You should see the Employee Directory web interface.
+You should see the Enterprise App web interface.
 
 ---
 

@@ -27,7 +27,7 @@ Migrate a production-style web application from AWS to GCP while:
 ```text
 /
 ├── AWS/                      # Original AWS deployment (EC2 + ALB + DynamoDB + S3)
-│   ├── README.md             # AWS Employee Directory app overview & usage
+│   ├── README.md             # AWS Enterprise App overview & usage
 │   ├── app/                  # Application source code (Flask on AWS)
 │   ├── assets/               # AWS architecture & app diagrams
 │   └── terraform/            # AWS Infrastructure as Code
@@ -57,7 +57,7 @@ This repository includes several focused documentation files to guide you throug
 
 - **AWS Application Overview & Usage**  
   See [AWS/README.md](AWS/README.md) for:
-  - High-level description of the AWS Employee Directory App
+  - High-level description of the AWS Enterprise App
   - Features and architecture of the original AWS deployment
   - Screenshots of the running application
   - Basic setup and usage instructions on AWS

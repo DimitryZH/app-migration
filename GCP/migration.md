@@ -1,6 +1,6 @@
 # AWS → GCP Migration Design
 
-This document describes the architectural migration of the Employee Directory application from Amazon Web Services (AWS) to Google Cloud Platform (GCP). It focuses on service mapping, infrastructure redesign, and key technical decisions made during the re-platforming process.
+This document describes the architectural migration of the Enterprise App from Amazon Web Services (AWS) to Google Cloud Platform (GCP). It focuses on service mapping, infrastructure redesign, and key technical decisions made during the re-platforming process.
 
 ---
 
