@@ -65,6 +65,34 @@ resource "google_project_iam_member" "enterprise_app_secretmanager" {
 }
 
 ############################
+## Firestore (Datastore mode) Database
+############################
+
+# Explicitly create the default Firestore database in Datastore mode
+# for the Cloud Run project. This mirrors the database used in the
+# Compute Engine option, but is scoped to enterprise-app-migration.
+
+resource "google_firestore_database" "default" {
+  project     = var.project_id
+  name        = "(default)"
+  location_id = "nam5"          # Multi-region location commonly used for Firestore
+  type        = "DATASTORE_MODE" # Match the application's Datastore-mode usage
+}
+
+############################
+## Cloud Storage Bucket for Photos
+############################
+
+resource "google_storage_bucket" "photos" {
+  name     = var.photos_bucket_name
+  project  = var.project_id
+  location = var.region
+
+  uniform_bucket_level_access = true
+  force_destroy               = true
+}
+
+############################
 ## Cloud Run (skeleton)
 ############################
 
@@ -92,6 +120,21 @@ resource "google_cloud_run_v2_service" "enterprise_app" {
       env {
         name  = "ENVIRONMENT"
         value = var.environment
+      }
+
+      env {
+        name  = "PHOTOS_BUCKET"
+        value = google_storage_bucket.photos.name
+      }
+
+      env {
+        name  = "GCP_PROJECT"
+        value = var.project_id
+      }
+
+      env {
+        name  = "DATASTORE_MODE"
+        value = "on"
       }
     }
 

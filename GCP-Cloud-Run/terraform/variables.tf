@@ -27,3 +27,8 @@ variable "cloud_run_service_name" {
   default     = "enterprise-app"
 }
 
+variable "photos_bucket_name" {
+  description = "Cloud Storage bucket name for employee photos"
+  type        = string
+}
+
