@@ -57,18 +57,18 @@ jobs:
                 --tag "$IMAGE" .
               echo "IMAGE=${IMAGE}" >> "$GITHUB_ENV"
 
-         - name: Setup Terraform
-           uses: hashicorp/setup-terraform@v3
-           with:
-              terraform_version: 1.6.6
+         # - name: Setup Terraform
+         #   uses: hashicorp/setup-terraform@v3
+         #   with:
+         #      terraform_version: 1.6.6
 
-         - name: Terraform init & apply for Cloud Run infra
-           working-directory: GCP-Cloud-Run/terraform
-           env:
-              GOOGLE_PROJECT: ${{ env.PROJECT_ID }}
-           run: |
-              terraform init -input=false
-              terraform apply -auto-approve -input=false
+         # - name: Terraform init & apply for Cloud Run infra
+         #   working-directory: GCP-Cloud-Run/terraform
+         #   env:
+         #      GOOGLE_PROJECT: ${{ env.PROJECT_ID }}
+         #   run: |
+         #      terraform init -input=false
+         #      terraform apply -auto-approve -input=false
 
          - name: Update Cloud Run service to new image
            env:
