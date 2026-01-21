@@ -202,7 +202,7 @@ flowchart TB
     HTTPS --> REV
 
     %% Runtime data plane
-    REV --> FS[(Firestore (Datastore Mode))]
+    REV --> FS[(Firestore Datastore Mode)]
     REV --> GCS[(Cloud Storage Bucket)]
     REV --> SM[(Secret Manager)]
 

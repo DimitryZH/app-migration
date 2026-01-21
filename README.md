@@ -1,13 +1,13 @@
 # Enterprise App Migration to Google Cloud (GCP)
 
-This repository is a **migration case study** for a Python/Flask "Enterprise App" that moves from a legacy-style AWS deployment to modern architectures on Google Cloud.
+This repository provides a **production-style reference implementation** for migrating a Python/Flask "Enterprise App" from an AWS-based architecture to modernized deployments on Google Cloud Platform (GCP).
 
-It focuses on:
-- Showing a realistic AWS baseline
-- Re‑platforming the app to GCP Compute Engine
-- Modernizing further to serverless Cloud Run with CI/CD
+The implementation demonstrates:
+- An AWS baseline architecture representative of real-world workloads
+- A re‑platformed design on GCP Compute Engine (Managed Instance Group)
+- A serverless container deployment on Cloud Run with integrated CI/CD
 
-All detailed design and runbooks are moved into the `docs/` folder and per-platform deployment guides.
+All detailed design, runbooks, and operational procedures are documented under the `docs/` folder and in the platform-specific deployment guides.
 
 ---
 
